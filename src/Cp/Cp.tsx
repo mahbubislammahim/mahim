@@ -2,107 +2,92 @@ import React from "react";
 
 import styles from "./Cp.module.css";
 
+const stats = [
+  { n: "1540+", l: "problems" },
+  { n: "185+", l: "contests" },
+  { n: "10+", l: "onsite" },
+  { n: "2", l: "organized" },
+];
+
 export default function Cp() {
-  const achievements = [
-    {
-      platform: "CodeChef",
-      rating: "1916",
-      level: "4★",
-      handle: "mahim47",
-      link: "https://www.codechef.com/users/mahim47"
-    },
-    {
-      platform: "Codeforces", 
-      rating: "1568",
-      level: "Specialist",
-      handle: "Mahim",
-      link: "https://codeforces.com/profile/Mahim"
-    },
-    {
-      platform: "ICPC",
-      level: "Regional",
-      highlight: "3-time participant (2021-24)",
-      teams: ["JU_NoName", "JU_3AngryMen", "JU_Metamask"]
-    },
-    {
-      platform: "NCPC 2023",
-      level: "National",
-      highlight: "NCPC finalist"
-    },
-  ];
-
-  const stats = [
-    { label: "Problems Solved", value: "1540+" },
-    { label: "Contests Participated", value: "185+" },
-    { label: "Onsite Contests", value: "10+" },
-    { label: "Organized Contests", value: "2" }
-  ];
-
   return (
     <div className={styles.outer}>
       <div className={styles.inner}>
-        <h1 className={styles.title}>
-          Programming Contests
-        </h1>
-        
-        <p className={styles.description}>
-          Former competitive programmer with strong algorithmic problem-solving skills. 
-          Participated in major programming contests including ICPC, National Programming Contest, 
-          and various online platforms during university years.
-        </p>
+        <h1 className={styles.title}>Programming Contests</h1>
 
-        <div className={styles.achievementsList}>
-          {achievements.map((achievement, index) => (
-            <div key={index} className={styles.achievementItem}>
-              <div className={styles.achievementHeader}>
-                <h3 className={styles.platformName}>{achievement.platform}</h3>
-                {achievement.rating && (
-                  <div className={styles.rating}>
-                    <span className={styles.ratingValue}>{achievement.rating}</span>
-                    <span className={styles.ratingLevel}>{achievement.level}</span>
-                  </div>
-                )}
-                {!achievement.rating && achievement.level && (
-                  <div className={styles.level}>
-                    <span className={styles.levelText}>{achievement.level}</span>
-                  </div>
-                )}
-              </div>
-              <p className={styles.highlight}>{achievement.highlight}</p>
-              {achievement.handle && (
-                <p className={styles.handle}>@{achievement.handle}</p>
-              )}
-              {achievement.link && (
-                <a 
-                  href={achievement.link} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className={styles.profileLink}
-                >
-                  View Profile
-                </a>
-              )}
-              {achievement.teams && (
-                <div className={styles.teams}>
-                  {achievement.teams.map((team, i) => (
-                    <span key={i} className={styles.teamTag}>{team}</span>
-                  ))}
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
+        <div className={styles.panel}>
+          <p className={styles.intro}>
+            Competitive programming background — ICPC, NCPC, and major online
+            judges during university.
+          </p>
 
-        <div className={styles.statsContainer}>
-          <h3 className={styles.statsTitle}>Programming Statistics</h3>
-          <div className={styles.statsGrid}>
-            {stats.map((stat, index) => (
-              <div key={index} className={styles.statItem}>
-                <div className={styles.statValue}>{stat.value}</div>
-                <div className={styles.statLabel}>{stat.label}</div>
-              </div>
+          <div className={styles.statsRow} role="list">
+            {stats.map((s) => (
+              <span key={s.l} className={styles.statChip} role="listitem">
+                <span className={styles.statNum}>{s.n}</span>
+                <span className={styles.statLbl}>{s.l}</span>
+              </span>
             ))}
           </div>
+
+          <div className={styles.divider} aria-hidden />
+
+          <ul className={styles.list}>
+            <li>
+              <a
+                href="https://www.codechef.com/users/mahim47"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.platform}
+              >
+                CodeChef
+              </a>
+              <span className={styles.meta}>
+                {" "}
+                1916 · 4★ ·{" "}
+                <a
+                  href="https://www.codechef.com/users/mahim47"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.handleLink}
+                >
+                  @mahim47
+                </a>
+              </span>
+            </li>
+            <li>
+              <a
+                href="https://codeforces.com/profile/Mahim"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.platform}
+              >
+                Codeforces
+              </a>
+              <span className={styles.meta}>
+                {" "}
+                1568 · Specialist ·{" "}
+                <a
+                  href="https://codeforces.com/profile/Mahim"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.handleLink}
+                >
+                  @Mahim
+                </a>
+              </span>
+            </li>
+            <li>
+              <span className={styles.platformStatic}>ICPC</span>
+              <span className={styles.meta}>
+                Regional · 3× (2021–24) — JU_NoName, JU_3AngryMen, JU_Metamask
+              </span>
+            </li>
+            <li>
+              <span className={styles.platformStatic}>NCPC 2023</span>
+              <span className={styles.meta}>National · finalist</span>
+            </li>
+          </ul>
         </div>
       </div>
     </div>

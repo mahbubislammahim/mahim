@@ -1,13 +1,10 @@
 .outer {
   background: #fff;
-  position: relative;
-  padding: 30px 0 30px 0;
-  z-index: 0;
+  padding: 18px 0 20px;
   display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
+  justify-content: center;
+}
+
 .inner {
   width: 70%;
   max-width: 1100px;
@@ -15,278 +12,172 @@
 }
 
 .title {
-  font-size: 2rem;
+  font-size: 1.65rem;
   font-weight: 400;
   color: #313131;
-  margin-bottom: 15px;
+  margin: 0 0 12px;
   text-align: left;
+  letter-spacing: -0.02em;
 }
 
-.description {
-  font-size: 1.1rem;
-  line-height: 1.7;
-  color: #555;
-  margin-bottom: 30px;
-  text-align: left;
-}
-
-.achievementsList {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 12px;
-  margin-bottom: 25px;
-}
-
-.achievementItem {
-  background: white;
-  border-radius: 6px;
-  padding: 12px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-  border: 1px solid rgba(0, 0, 0, 0.05);
+.panel {
+  border-radius: 10px;
+  padding: 14px 16px 13px;
+  background: #fafafa;
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
   position: relative;
   overflow: hidden;
 }
 
-.achievementItem::before {
-  content: '';
+.panel::before {
+  content: "";
   position: absolute;
-  top: 0;
   left: 0;
+  top: 0;
+  bottom: 0;
   width: 3px;
-  height: 100%;
-  background: #4d94c4;
+  border-radius: 10px 0 0 10px;
+  background: linear-gradient(180deg, #5ba3d4 0%, #4d94c4 55%, #3d7aa8 100%);
 }
 
-.achievementHeader {
+.intro {
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: #5c6570;
+  margin: 0 0 10px;
+  padding-left: 2px;
+  max-width: 38rem;
+}
+
+.statsRow {
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
   align-items: center;
-  margin-bottom: 6px;
+  gap: 6px;
+  margin: 0 0 10px;
+  padding-left: 2px;
 }
 
-.platformName {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #2c3e50;
-  margin: 0;
-}
-
-.rating {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 2px;
-}
-
-.ratingValue {
-  font-size: 1rem;
-  font-weight: 700;
-  color: #4d94c4;
-}
-
-.ratingLevel {
-  font-size: 0.8rem;
-  color: #666;
-  font-weight: 500;
-}
-
-.level {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 2px;
-}
-
-.levelText {
-  font-size: 0.8rem;
-  color: #4d94c4;
-  font-weight: 600;
-  background: rgba(77, 148, 196, 0.1);
-  padding: 4px 8px;
-  border-radius: 4px;
-}
-
-.contest {
-  font-size: 0.9rem;
-  color: #666;
-  margin: 0 0 10px 0;
-  font-weight: 500;
-  font-style: italic;
-}
-
-.highlight {
-  font-size: 0.9rem;
-  color: #555;
-  margin: 0 0 6px 0;
-  font-weight: 500;
-}
-
-.handle {
-  font-size: 0.8rem;
-  color: #4d94c4;
-  margin: 0 0 8px 0;
-  font-weight: 600;
-}
-
-.profileLink {
+.statChip {
   display: inline-flex;
-  align-items: center;
-  color: #4d94c4;
-  text-decoration: none;
-  font-weight: 600;
+  align-items: baseline;
+  gap: 5px;
+  padding: 4px 9px;
+  border-radius: 7px;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.9) inset;
+}
+
+.statNum {
   font-size: 0.8rem;
-  padding: 4px 8px;
-  border-radius: 4px;
-  background: rgba(77, 148, 196, 0.1);
-  border: 1px solid rgba(77, 148, 196, 0.2);
-  transition: all 0.3s ease;
-}
-
-.profileLink:hover {
-  background: rgba(77, 148, 196, 0.15);
-  border-color: rgba(77, 148, 196, 0.3);
-  transform: translateY(-2px) scale(1.05);
-}
-
-.profileLink:active {
-  transform: translateY(-1px) scale(1.02);
-  transition: all 0.1s ease;
-}
-
-.teams {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.teamTag {
-  background: rgba(77, 148, 196, 0.1);
-  color: #4d94c4;
-  padding: 4px 8px;
-  border-radius: 12px;
-  font-size: 0.8rem;
-  font-weight: 500;
-}
-
-.statsContainer {
-  background: white;
-  border-radius: 8px;
-  padding: 20px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  position: relative;
-  overflow: hidden;
-}
-
-.statsContainer::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 3px;
-  height: 100%;
-  background: #4d94c4;
-}
-
-.statsTitle {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #2c3e50;
-  margin: 0 0 15px 0;
-  text-align: center;
-}
-
-.statsGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 12px;
-}
-
-.statItem {
-  text-align: center;
-  padding: 10px;
-  background: rgba(77, 148, 196, 0.05);
-  border-radius: 6px;
-}
-
-.statValue {
-  font-size: 1.5rem;
   font-weight: 700;
-  color: #4d94c4;
-  margin-bottom: 3px;
+  color: #2c3e50;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
 }
 
-.statLabel {
-  font-size: 0.8rem;
-  color: #666;
-  font-weight: 500;
-}
-
-/* Combined card styles */
-.achievementLevel {
-  font-size: 0.9rem;
-  color: #4d94c4;
+.statLbl {
+  font-size: 0.68rem;
   font-weight: 600;
-  background: rgba(77, 148, 196, 0.1);
-  padding: 4px 8px;
-  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #7a8490;
 }
 
-.subPlatforms {
-  margin-top: 12px;
+.divider {
+  height: 1px;
+  margin: 0 0 10px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(0, 0, 0, 0.08) 25%,
+    rgba(0, 0, 0, 0.06) 75%,
+    transparent 100%
+  );
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 2px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 7px;
 }
 
-.subPlatform {
-  background: rgba(77, 148, 196, 0.05);
-  border-radius: 6px;
-  padding: 10px;
-  border-left: 3px solid #4d94c4;
+.list li {
+  position: relative;
+  font-size: 0.88rem;
+  line-height: 1.45;
+  color: #3d4852;
+  padding-left: 13px;
 }
 
-.subPlatformHeader {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 6px;
+.list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #4d94c4;
+  opacity: 0.65;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.06);
 }
 
-.subPlatformName {
-  font-size: 1rem;
+.platform {
+  font-weight: 700;
+  color: #243240;
+  text-decoration: none;
+  margin-right: 6px;
+  transition: color 0.15s ease;
+}
+
+.platform:hover {
+  color: #4d94c4;
+}
+
+.platform:focus-visible {
+  outline: 2px solid rgba(77, 148, 196, 0.45);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.platformStatic {
+  font-weight: 700;
+  color: #243240;
+  margin-right: 6px;
+}
+
+.meta {
+  color: #5a6570;
+}
+
+.handleLink {
+  color: #3a7aa8;
   font-weight: 600;
-  color: #2c3e50;
+  text-decoration: none;
+  transition: color 0.15s ease;
 }
 
-.subHighlight {
-  font-size: 0.85rem;
-  color: #555;
-  margin: 0 0 4px 0;
-  font-weight: 500;
+.handleLink:hover {
+  color: #4d94c4;
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
-.singleAchievement {
-  margin-top: 8px;
+.handleLink:focus-visible {
+  outline: 2px solid rgba(77, 148, 196, 0.45);
+  outline-offset: 2px;
+  border-radius: 2px;
 }
 
-.links {
-  display: flex;
-  gap: 10px;
-  margin-top: 8px;
-  flex-wrap: wrap;
-}
-
-.profileLinks {
-  display: flex;
-  gap: 10px;
-  margin-top: 8px;
-  flex-wrap: wrap;
-}
-  
 @media (max-width: 768px) {
   .outer {
-    padding: 40px 0 40px 0;
+    padding: 16px 0 18px;
   }
 
   .inner {
@@ -295,46 +186,48 @@
   }
 
   .title {
-    font-size: 1.7rem;
+    font-size: 1.45rem;
     text-align: center;
   }
 
-  .cpContainer {
-    padding: 20px;
+  .intro {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .statsRow {
+    justify-content: center;
   }
 
   .list {
-    padding-left: 15px;
-  }
-
-  .listItem {
-    font-size: 0.95rem;
+    text-align: left;
   }
 }
 
 @media (max-width: 480px) {
-  .outer {
-    padding: 25px 0 25px 0;
-  }
-
   .inner {
     width: 100%;
     padding: 0 20px;
   }
 
   .title {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
   }
 
-  .cpContainer {
-    padding: 15px;
+  .panel {
+    padding: 12px 13px 11px;
   }
 
-  .list {
-    padding-left: 10px;
+  .statChip {
+    padding: 3px 7px;
   }
 
-  .listItem {
-    font-size: 0.9rem;
+  .statNum {
+    font-size: 0.76rem;
+  }
+
+  .statLbl {
+    font-size: 0.62rem;
   }
 }
