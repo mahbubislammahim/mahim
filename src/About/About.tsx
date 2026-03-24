@@ -1,9 +1,16 @@
 import React from "react";
 import "@fortawesome/fontawesome-free/css/all.min.css";
-import { siteConfig, formatSiteLastUpdated } from "@/app/metadata";
+import {
+  siteConfig,
+  formatSiteLastUpdated,
+  getResumeHref,
+} from "@/app/metadata";
 import styles from "./About.module.css";
 
 export default function About() {
+  const resumeHref = getResumeHref();
+  const resumeIsExternal = Boolean(siteConfig.resumeExternalUrl?.trim());
+
   return (
     <div className={styles.outer}>
       <div className={styles.inner}>
@@ -63,8 +70,12 @@ export default function About() {
                   </a>
 
                   <a
-                    href="./Mahbub_Islam_Mahim_Resume.pdf"
-                    download="Mahbub_Islam_Mahim_Resume.pdf"
+                    href={resumeHref}
+                    {...(resumeIsExternal
+                      ? { target: "_blank", rel: "noopener noreferrer" }
+                      : {
+                          download: siteConfig.resumePdfFileName,
+                        })}
                   >
                     <i
                       className={`fas fa-file-alt ${styles.bigIcon}`}

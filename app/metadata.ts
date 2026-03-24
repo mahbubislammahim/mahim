@@ -13,6 +13,13 @@ export const siteConfig = {
     linkedin: "https://www.linkedin.com/in/mahbub-islam-mahim-4634a5154/",
     email: "mahbubislammahim@gmail.com",
   },
+  /** Served from the same deploy as `public/` → `dist/` (must be committed). */
+  resumePdfFileName: "Mahbub_Islam_Mahim_Resume.pdf",
+  /**
+   * Optional full URL to resume (e.g. Google Drive “anyone with link” view or
+   * `https://drive.google.com/uc?export=download&id=FILE_ID`). Leave empty to use the PDF on this site.
+   */
+  resumeExternalUrl: "",
   keywords: [
     "Mahbub Islam Mahim",
     "Software Engineer",
@@ -34,6 +41,15 @@ export const siteConfig = {
     "Trustworthy AI"
   ]
 };
+
+export function getResumeHref(): string {
+  const external = siteConfig.resumeExternalUrl?.trim();
+  if (external) return external;
+  const base = siteConfig.url.endsWith("/")
+    ? siteConfig.url
+    : `${siteConfig.url}/`;
+  return new URL(siteConfig.resumePdfFileName, base).href;
+}
 
 export function formatSiteLastUpdated(isoDate: string): string {
   const parts = isoDate.split("-").map(Number);
