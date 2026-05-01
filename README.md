@@ -4,16 +4,16 @@ This is a portfolio website built with Next.js and deployed on GitHub Pages.
 
 ## 🚀 Deployment
 
-This project is automatically deployed to GitHub Pages using GitHub Actions. The deployment happens automatically when you push to the `master` branch.
+This project is automatically deployed to GitHub Pages using GitHub Actions.
 
 ### Live Site
-Site will be available at: `https://MAHIM-JU-CSE.github.io/mahim/`
+Site will be available at: `https://mahbubislammahim.github.io`
 
 ## 🛠️ Local Development
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/MAHIM-JU-CSE/mahim.git
+git clone https://github.com/mahbubislammahim/mahbubislammahim.github.io.git
 cd mahim
 ```
 
